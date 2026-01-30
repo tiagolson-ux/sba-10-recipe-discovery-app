@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Category from "./pages/Category";
+import RecipeDetail from "./pages/RecipeDetail";
+import Favorites from "./pages/Favorites";
+import SearchResults from "./pages/SearchResults";
 
+// Note to self: Set up all routes and include Navbar on every page
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryName" element={<Category />} />
+        <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/search" element={<SearchResults />} />
+      </Routes>
+    </Router>
   );
 }
 
