@@ -1,3 +1,15 @@
-// Navbar component placeholder
-const Navbar = () => <nav>Navbar</nav>;
+
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+
+const Navbar = () => (
+	<nav className="navbar">
+		<ul className="navbar-list">
+			<li><Link to="/">Home</Link></li>
+			<li><Link to="/favorites">Favorites</Link></li>
+			<li><Link to="/search">Search</Link></li>
+		</ul>
+	</nav>
+);
+
 export default Navbar;
